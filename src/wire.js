@@ -22,7 +22,7 @@ export default (...busses: string[]) => (WiredComponent: ReactClass<*>) => {
           const $emit = (...args) => emit(name, ...args);
           return {
             ...d,
-            [`${name}Emit`]: $emit,
+            [`${name}Emitter`]: $emit,
           };
         }, {});
     }
