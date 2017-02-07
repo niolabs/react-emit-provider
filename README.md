@@ -30,7 +30,7 @@ ReactDOM.render((
 
 To get the emitter:
 
-```
+```js
 import { wire } from 'react-emit-provider';
 
 const Component = (props) {
