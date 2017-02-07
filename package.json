@@ -1,6 +1,6 @@
 {
   "name": "react-emit-provider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React bindings to inject an Event-Emitter into components",
   "repository": {
     "type": "git",
