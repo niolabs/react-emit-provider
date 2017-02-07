@@ -1,0 +1,55 @@
+{
+  "name": "react-emit-provider",
+  "version": "0.0.0",
+  "description": "React bindings to inject an Event-Emitter into components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nioinnovation/react-emit-provider"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel ./src --out-dir ./lib",
+    "check": "npm run check:lint && npm run check:types",
+    "check:types": "flow check",
+    "clean": "rimraf ./lib",
+    "check:lint": "eslint --ext .js,.jsx ./src ",
+    "prebuild": "npm run clean",
+    "prepublish": "npm run build",
+    "pretest": "npm run check",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "chokidar 'src/**/*.js' 'src/**/*.jsx' -c 'npm run build'"
+  },
+  "peerDependencies": {
+    "react": "^15.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "chai": "^3.5.0",
+    "chokidar-cli": "^1.2.0",
+    "enzyme": "^2.7.0",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-flowtype": "^2.29.2",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
+    "flow-bin": "^0.38.0",
+    "lodash.uniqueid": "^4.0.1",
+    "mocha": "^3.2.0",
+    "react": "^15.4.1",
+    "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "rimraf": "^2.5.4",
+    "sinon": "^1.17.7"
+  },
+  "author": "n.io <info@n.io>",
+  "license": "ISC",
+  "dependencies": {
+    "memoizee": "^0.4.1"
+  }
+}
