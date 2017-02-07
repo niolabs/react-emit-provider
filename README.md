@@ -1,0 +1,98 @@
+# react-emit-provider
+
+## Installing
+
+```
+npm install react-emit-provider
+```
+
+## Usage
+
+### Provider
+
+```js
+import React from 'react';
+improt ReactDOM from 'react-dom';
+import EmitProvider from 'react-emit-provider';
+import EmitEmitter from 'events';
+
+const ee = new EventEmitter();
+const emit = ee.emit.bind(ee);
+
+ReactDOM.render((
+  <EmitProvider emit={emit}>
+    <WiredComponent />
+  </EmitProvider>
+), app);
+```
+
+### Component Wiring
+
+To get the emitter:
+
+```
+import { wire } from 'react-emit-provider';
+
+const Component = (props) {
+  const { emit } = props;
+  return (<button onClick={() => emit('name')}>Button</button>);
+};
+
+export default wire()(Component);
+```
+
+To get a emitter of specific `eventName`
+
+
+```js
+import { wire } from 'react-emit-provider';
+
+const Component = (props) {
+  const { clickedEmitter } = props;
+  return (<button onClick={clickedEmitter}>Button</button>);
+};
+
+export default wire('clicked')(Component);
+```
+
+Or multiple:
+
+```js
+import { wire } from 'react-emit-provider';
+
+const Component = (props) {
+  const { connectEmitter, disconnectEmitter } = props;
+  return (
+    <div>
+      <button onClick={connectEmitter}>connect</button>
+      <button onClick={disconnectEmitter}>disconnect</button>
+    </div>
+  );
+};
+
+export default wire('connect', 'disconnect')(Component);
+```
+
+### Advanced Wiring
+
+```js
+import { wireAdvanced } from 'react-emit-provider';
+
+const Component = (props) {
+  const { item, handleSelect, handleUnselect } = props;
+  return (
+    <div>
+      <div>{item.name}</div>
+      <button onClick={handleSelect(item)}>select</button>
+      <button onClick={handleUnselect(item)}>unselect</button>
+    </div>
+  );
+};
+
+export default wireAdvanced({
+  context: {
+    handleSelect: (emit, item) => { emit({ type: 'SELECT', id: item.id }); },
+    handleUnselect: (emit, item) => { emit({ type: 'UNSELECT', id: item.id }); },
+  },
+})(Component);
+```
