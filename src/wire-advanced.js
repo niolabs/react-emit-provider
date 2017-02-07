@@ -21,7 +21,7 @@ export default (
         'Component';
 
       class Wired extends Component {
-        static displayName = `Wired(${wiredComponentName})`;
+        static displayName = `WiredAdvanced(${wiredComponentName})`;
 
         static contextTypes = {
           [contextKey]: contextShape,
