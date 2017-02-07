@@ -12,7 +12,7 @@ npm install react-emit-provider
 
 ```js
 import React from 'react';
-improt ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import EmitProvider from 'react-emit-provider';
 import EmitEmitter from 'events';
 
