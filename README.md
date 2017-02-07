@@ -75,6 +75,9 @@ export default wire('connect', 'disconnect')(Component);
 
 ### Advanced Wiring
 
+Advanced wiring can give you more control over the injected methods. It will
+also, by default, perform memoization to avoid generating multiple handlers.
+
 ```js
 import { wireAdvanced } from 'react-emit-provider';
 
@@ -83,16 +86,16 @@ const Component = (props) {
   return (
     <div>
       <div>{item.name}</div>
-      <button onClick={handleSelect(item)}>select</button>
-      <button onClick={handleUnselect(item)}>unselect</button>
+      <button onClick={handleSelect(item.id)}>select</button>
+      <button onClick={handleUnselect(item.id)}>unselect</button>
     </div>
   );
 };
 
 export default wireAdvanced({
   context: {
-    handleSelect: (emit, item) => { emit({ type: 'SELECT', id: item.id }); },
-    handleUnselect: (emit, item) => { emit({ type: 'UNSELECT', id: item.id }); },
+    handleSelect: (emit, id) => { emit({ type: 'SELECT', id }); },
+    handleUnselect: (emit, id) => { emit({ type: 'UNSELECT', id }); },
   },
 })(Component);
 ```
