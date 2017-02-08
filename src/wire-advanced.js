@@ -35,7 +35,7 @@ export default (
             Object.entries(methods).forEach(([method, val]) => {
               if (typeof val === 'function') {
                 const impl: Function = val;
-                const $impl = (...args) => () => impl($emit, ...args);
+                const $impl = (...args1) => (...args2) => impl($emit, ...args1, ...args2);
                 emitters = {
                   ...emitters,
                   [method]: memoize ? memoizeFn($impl, { length: impl.length }) : $impl,
