@@ -112,16 +112,17 @@ ee.addEventListener('channel', (signal) => {
 to the handler on invocation, as well as partially applied arguments
 during handler construction.
 
-```js
-  const Component = () => <button onClick='handleClick({ data: 'data' })>Button</button>
-  const Wired = wireAdvanced({
-    channel: {
-      handleClick(emit, data, e) {
-        /* data - the partially applied data object */
-        /* e - the onClick event from the button */
-      },
+```jsx
+const Component = () => <button onClick={handleClick({ data: 'data' })}>Button</button>
+
+const Wired = wireAdvanced({
+  channel: {
+    handleClick(emit, data, e) {
+      /* data - the partially applied data object */
+      /* e - the onClick event from the button */
     },
-  });
+  },
+});
 ```
 
 
