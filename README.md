@@ -14,7 +14,7 @@ npm install react-emit-provider
 import React from 'react';
 import ReactDOM from 'react-dom';
 import EmitProvider from 'react-emit-provider';
-import EmitEmitter from 'events';
+import EventEmitter from 'events';
 
 const ee = new EventEmitter();
 const emit = ee.emit.bind(ee);
