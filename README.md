@@ -108,4 +108,20 @@ ee.addEventListener('channel', (signal) => {
 });
 ```
 
+`wireAdvanced()` handlers will now also pass through arguments given
+to the handler on invocation, as well as partially applied arguments
+during handler construction.
+
+```js
+  const Component = () => <button onClick='handleClick({ data: 'data' })>Button</button>
+  const Wired = wireAdvanced({
+    channel: {
+      handleClick(emit, data, e) {
+        /* data - the partially applied data object */
+        /* e - the onClick event from the button */
+      },
+    },
+  });
+```
+
 
