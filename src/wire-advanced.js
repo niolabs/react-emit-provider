@@ -5,15 +5,15 @@ import defaultMemoizer from 'memoizee';
 import contextKey from './context-key';
 import contextShape from './context-shape';
 
-type Mappings = { [string]: { [string]: Function } };
-type AdvancedWireOptions = {
+type WireMappings = { [string]: { [string]: Function } };
+type WireAdvancedOptions = {
   memoize: boolean,
   memoizeFn: Function,
 }
 
 export default (
-    mappings: Mappings,
-    { memoize = true, memoizeFn = defaultMemoizer }: AdvancedWireOptions = {},
+    mappings: WireMappings,
+    { memoize = true, memoizeFn = defaultMemoizer }: WireAdvancedOptions = {},
   ) =>
     (WiredComponent: ReactClass<*>) => {
       const wiredComponentName = WiredComponent.displayName ||
