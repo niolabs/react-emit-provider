@@ -93,9 +93,19 @@ const Component = (props) {
 };
 
 export default wireAdvanced({
-  context: {
+  channel: {
     handleSelect: (emit, id) => { emit({ type: 'SELECT', id }); },
     handleUnselect: (emit, id) => { emit({ type: 'UNSELECT', id }); },
   },
 })(Component);
 ```
+
+Which would be dispatched as:
+
+```js
+ee.addEventListener('channel', (signal) => {
+  console.log(signal.type, signal.id);
+});
+```
+
+
