@@ -108,7 +108,7 @@ ee.addEventListener('channel', (signal) => {
 });
 ```
 
-`wireAdvanced()` handlers will now also pass through arguments given
+`wireAdvanced()` handlers will also pass through arguments given
 to the handler on invocation, as well as partially applied arguments
 during handler construction.
 
