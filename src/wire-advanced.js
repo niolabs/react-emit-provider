@@ -13,7 +13,7 @@ type WireAdvancedOptions = {
 
 export default (
     mappings: WireMappings,
-    { memoize = true, memoizeFn = defaultMemoizer }: WireAdvancedOptions = {},
+    { memoize = false, memoizeFn = defaultMemoizer }: WireAdvancedOptions = {},
   ) =>
     (WiredComponent: ReactClass<*>) => {
       const wiredComponentName = WiredComponent.displayName ||
