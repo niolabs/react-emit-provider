@@ -1,5 +1,5 @@
 /* @flow */
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 
 export default PropTypes.shape({
   emit: PropTypes.func.isRequired,

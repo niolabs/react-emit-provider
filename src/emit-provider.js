@@ -1,5 +1,6 @@
 /* @flow */
-import { Children, Component, PropTypes } from 'react';
+import { Children, Component } from 'react';
+import PropTypes from 'prop-types';
 
 import warn from './warn';
 import contextKey from './context-key';
